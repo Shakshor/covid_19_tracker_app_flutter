@@ -1,4 +1,4 @@
-#Thu May 25 14:48:12 BDT 2023
+#Fri May 26 16:32:41 BDT 2023
 base.0=E\:\\Flutter Project\\covid_19_tracker\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 renamed.0=classes.dex
 path.0=classes.dex
