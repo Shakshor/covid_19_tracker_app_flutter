@@ -78,6 +78,7 @@ class _WorldStatesScreenState extends State<WorldStatesScreen> with TickerProvid
 
                       if(!snapshot.hasData){
 
+                        // spinner showing for loading
                         return Expanded(
 
                           flex: 1,
