@@ -97,7 +97,7 @@ class _WorldStatesScreenState extends State<WorldStatesScreen> with TickerProvid
                             // pie chart
                             PieChart(
 
-                                chartValuesOptions: ChartValuesOptions(
+                                chartValuesOptions: const ChartValuesOptions(
                                   showChartValuesInPercentage: true,
                                 ),
                                 chartRadius: MediaQuery.of(context).size.width / 2.5,
@@ -109,7 +109,7 @@ class _WorldStatesScreenState extends State<WorldStatesScreen> with TickerProvid
                                 ),
 
                                 // animation duration
-                                animationDuration: const Duration(microseconds: 1200),
+                                animationDuration: const Duration(milliseconds: 1600),
 
                                 dataMap: {
                                   'Total': double.parse(snapshot.data!.cases!.toString()),

@@ -1,4 +1,5 @@
 import 'package:covid_tracker/Services/state_services.dart';
+import 'package:covid_tracker/View/details_screen.dart';
 import 'package:flutter/material.dart';
 
 // shimmer effect
@@ -118,7 +119,28 @@ class _CountriesListScreenState extends State<CountriesListScreen> {
 
                                 InkWell(
 
+                                  // details with onPressed
                                   onTap:(){
+
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => DetailsScreen(
+
+                                              // data passing
+                                              name: snapshot.data![index]['country'],
+                                              image: snapshot.data![index]['countryInfo']['flag'],
+                                              totalCases: snapshot.data![index]['cases'],
+                                              totalDeaths: snapshot.data![index]['deaths'],
+                                              totalRecovered: snapshot.data![index]['recovered'],
+                                              active: snapshot.data![index]['active'],
+                                              critical: snapshot.data![index]['critical'],
+                                              todayRecovered: snapshot.data![index]['todayRecovered'],
+                                              test: snapshot.data![index]['tests'],
+
+                                            )
+                                        ),
+                                    );
 
                                 },
 
@@ -145,17 +167,45 @@ class _CountriesListScreenState extends State<CountriesListScreen> {
                             return Column(
                               children: [
 
-                                ListTile(
+                                InkWell(
 
-                                  title: Text(snapshot.data![index]['country']),
-                                  subtitle: Text(snapshot.data![index]['cases'].toString()),
+                                  // showing details with onPressed
+                                  onTap:(){
 
-                                  leading: Image(
-                                    height: 50,
-                                    width: 50,
-                                    image: NetworkImage(snapshot.data![index]['countryInfo']['flag']),
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => DetailsScreen(
+
+                                            // data passing
+                                            name: snapshot.data![index]['country'],
+                                            image: snapshot.data![index]['countryInfo']['flag'],
+                                            totalCases: snapshot.data![index]['cases'],
+                                            totalDeaths: snapshot.data![index]['deaths'],
+                                            totalRecovered: snapshot.data![index]['recovered'],
+                                            active: snapshot.data![index]['active'],
+                                            critical: snapshot.data![index]['critical'],
+                                            todayRecovered: snapshot.data![index]['todayRecovered'],
+                                            test: snapshot.data![index]['tests'],
+
+                                          )
+                                      ),
+                                    );
+
+                                  },
+
+                                  child: ListTile(
+
+                                    title: Text(snapshot.data![index]['country']),
+                                    subtitle: Text(snapshot.data![index]['cases'].toString()),
+
+                                    leading: Image(
+                                      height: 50,
+                                      width: 50,
+                                      image: NetworkImage(snapshot.data![index]['countryInfo']['flag']),
+                                    ),
+
                                   ),
-
                                 ),
 
                               ],
